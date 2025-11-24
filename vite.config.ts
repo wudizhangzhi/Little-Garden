@@ -14,6 +14,10 @@ export default defineConfig(({ mode }) => {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
       },
+      esbuild: {
+        // 这行是关键！React 19 必须加
+        jsx: 'react-jsx',
+      },
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
